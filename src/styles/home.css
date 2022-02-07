@@ -1,0 +1,12 @@
+.card {
+    width: 25rem;
+    padding: 3%
+}
+.card-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.title {
+    margin-bottom: 5%;
+}
