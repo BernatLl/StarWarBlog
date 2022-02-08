@@ -1,11 +1,22 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
 .card {
-    width: 25rem;
-    padding: 3%
+    width:18rem;
+    height: 200px;
+    padding: 3%;
+    margin-right: 3%;
+
 }
 .card-link {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    vertical-align:bottom;
 }
 .title {
     margin-bottom: 5%;

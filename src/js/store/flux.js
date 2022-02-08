@@ -7,59 +7,67 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starshipsData: []
 		},
 		actions: {
+			loadTotal: ()=> {
+				loadPeopleData();
+				loadPlanetData();
+				loadStarshipsData();
+			},
+			loadPeopleData: () => {
+				fetch("https://www.swapi.tech/api/people", {
+				method: "GET",
+				headers: {
+					"Accept": "application/json"
+				}
+				})
+				.then(resp => {return resp.json()}
+				)
+				.then(data => {
+					
+					setStore({peopleData:data.results})
+				})
+				.catch(error=>{
+					console.error(error.message);
+
+				})
 			
-			loadSomeData: () => {
-				fetch('https://www.swapi.tech/api/people')
-				.then(response => {
-					console.log('Aqui esta response' ,response )
-						if(response.ok){
-							return response.json();
-						}
-						throw new Error('Fail loading data')
-					}
+			},
+			loadPlanetData: () => {
+				fetch("https://www.swapi.tech/api/planets", {
+				method: "GET",
+				headers: {
+					"Accept": "application/json"
+				}
+				})
+				.then(resp => {return resp.json()}
 				)
-				.then(responseAsJson => {
-					console.log('Aqui esta responseAsJson' ,responseAsJson )
-					setStore({peopleData:responseAsJson.results})
+				.then(data => {
+					
+					setStore({planetsData:data.results})
 				})
 				.catch(error=>{
 					console.error(error.message);
 
 				})
-				fetch('https://www.swapi.tech/api/planets')
-				.then(response => {
-					console.log('Aqui esta response' ,response )
-						if(response.ok){
-							return response.json();
-						}
-						throw new Error('Fail loading data')
-					}
+			
+			},
+			loadStarshipsData: () => {
+				fetch("https://www.swapi.tech/api/starships", {
+				method: "GET",
+				headers: {
+					"Accept": "application/json"
+				}
+				})
+				.then(resp => {return resp.json()}
 				)
-				.then(responseAsJson => {
-					console.log('Aqui esta responseAsJson' ,responseAsJson )
-					setStore({planetsData:responseAsJson.results})
+				.then(data => {
+					
+					setStore({starshipsData:data.results})
 				})
 				.catch(error=>{
 					console.error(error.message);
 
 				})
-				fetch('https://www.swapi.tech/api/starships')
-				.then(response => {
-					console.log('Aqui esta response' ,response )
-						if(response.ok){
-							return response.json();
-						}
-						throw new Error('Fail loading data')
-					}
-				)
-				.then(responseAsJson => {
-					console.log('Aqui esta responseAsJson' ,responseAsJson )
-					setStore({starshipsData:responseAsJson.results})
-				})
-				.catch(error=>{
-					console.error(error.message);
-
-				})
+			
 			},
 			
 		}

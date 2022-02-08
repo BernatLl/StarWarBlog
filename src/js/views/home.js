@@ -1,34 +1,90 @@
 import React,{useEffect, useContext} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
+import rigoImage from "../../img/rigo-baby.jpg";
 
-
-export const Home = (props) => {
+ export const Home = () => {
 	const { store, actions } = useContext(Context);
+	useEffect (()=>{
+			actions.loadTotal();
+		}, []);
+
 	return(
+		
+
 		<>
-			<div className="container">
-				<h1 className="title">Characters</h1>
-					<div className="card" >
-						<img src="..." className="card-img-top" alt="..."></img>
-							{peopleData.map((people, i)=>(
-								<div className="card-body">
-									<h5 className="card-title">{people.name}</h5>
-									<p className="card-text">{people.hair_color}</p>
-									<p className="card-text">{people.eye_color}</p>
-									<p className="card-text">{people.heigth}</p>
+			<h1 className="title" >
+				Characters
+			</h1>
+			<div className="container" >		
+				{store.peopleData.map((people, i)=>
 					
-								</div>
-							))}
-  						<div className="card-link">
-							<a href="#" className="btn btn-primary">Read more</a>
-							<a href="#" className="btn btn-primary">favorites</a>
-						</div>	  
-					</div>
-			</div>
+		
+						<div className="card"   key={i}>
+							<img src={rigoImage} className="card-img-top" alt="..."></img>
+							<div className="card-body" >
+									<h5 className="card-title">{people.name}</h5>
+																
+									<div className="card-link">
+											<a href="#" className="btn btn-primary">Read more</a>
+											<a href="#" className="btn btn-primary">favorites</a>
+									</div>
+							</div>
+						</div>
+						
+							
+				)}
+			</div>		
+			<h1 className="title" >
+				Characters
+			</h1>
+			<div className="container" >		
+				{store.planetsData.map((people, i)=>
+					
+		
+						<div className="card"   key={i}>
+							<img src={rigoImage} className="card-img-top" alt="..."></img>
+							<div className="card-body" >
+									
+									<h5 className="card-title">{people.name}</h5>
+									
+									<div className="card-link">
+											<a href="#" className="btn btn-primary">Read more</a>
+											<a href="#" className="btn btn-primary">favorites</a>
+									</div>
+							</div>
+						</div>
+						
+							
+				)}
+			</div>		
+			<h1 className="title" >
+				Characters
+			</h1>
+			<div className="container" >		
+				{store.starshipsData.map((people, i)=>
+					
+		
+						<div className="card"   key={i}>
+							<img src={rigoImage} className="card-img-top" alt="..."></img>
+							<div className="card-body" >
+									
+									<h5 className="card-title">{people.name}</h5>
+								
+									<div className="card-link">
+											<a href="#" className="btn btn-primary">Read more</a>
+											<a href="#" className="btn btn-primary">favorites</a>
+									</div>
+							</div>
+						</div>
+						
+							
+				)}
+			</div>		
 	
 		</>
 
 	
 	);
 }
+
