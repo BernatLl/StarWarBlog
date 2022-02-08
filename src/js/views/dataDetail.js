@@ -2,21 +2,22 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
-
+import Home from "./home";
 import "../../styles/dataDetail.css";
 
 export const DataDetail = () => {
 	const { store, actions } = useContext(Context);
 	useEffect (()=>{
-			actions.loadPeopleData();
-			actions.loadPlanetData();
-			actions.loadStarshipsData();
+		actions.loadPeopleDetail();
+		
+		
+			
 	}, []);
 
 	return (
 		<div className="container">
-			{store.peopleData.map((index, i)=>{
-				<div key={i}>
+			{store.loadPeopleDetail.map((index, i)=>{
+				<div key={i} id={index.uid}>
 					<ul>
 						<li>Name: {index.name}</li>
 						<li>Heigth: {index.heigth}</li>

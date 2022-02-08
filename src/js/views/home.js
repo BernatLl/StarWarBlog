@@ -1,15 +1,17 @@
 import React,{useEffect, useContext} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
+import { Link } from "react-router-dom";
 
 
-export const Home = () => {
+const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	useEffect (()=>{
 			actions.loadPeopleData();
 				actions.loadPlanetData();
 				actions.loadStarshipsData();
+				actions.loadPeopleDetail();
 		}, []);
 
 	return(
@@ -25,7 +27,9 @@ export const Home = () => {
 									<h5 className="card-title">{people.name}</h5>
 																
 									<div className="card-link">
-											<button className="btn btn-primary">Read more</button>
+										<Link to="/dataDetails">
+											<button className="btn btn-primary" id={people.uid}>Read more</button>
+										</Link>		
 											<button className="btn btn-primary">favorites</button>
 									</div>
 							</div>
@@ -74,3 +78,4 @@ export const Home = () => {
 	);
 };
 
+export default Home;

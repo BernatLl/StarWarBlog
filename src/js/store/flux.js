@@ -4,7 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			peopleData: [],
 			planetsData: [],
-			starshipsData: []
+			starshipsData: [],
+			peopleDataId:[]
 		},
 		actions: {
 			loadTotal: ()=> {
@@ -62,6 +63,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(data => {
 					
 					setStore({starshipsData:data.results})
+				})
+				.catch(error=>{
+					console.error(error.message);
+
+				})
+			
+			},
+			loadPeopleDetail: () => {
+				fetch("https://www.swapi.tech/api/people", {
+				method: "GET",
+				headers: {
+					"Accept": "application/json"
+				}
+				})
+				.then(resp => {return resp.json()}
+				)
+				.then(data => {
+					
+					setStore({peopleDataId:data})
 				})
 				.catch(error=>{
 					console.error(error.message);
