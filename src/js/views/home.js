@@ -3,10 +3,13 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import rigoImage from "../../img/rigo-baby.jpg";
 
- export const Home = () => {
+const Home = () => {
 	const { store, actions } = useContext(Context);
+
 	useEffect (()=>{
-			actions.loadTotal();
+			actions.loadPeopleData();
+				actions.loadPlanetData();
+				actions.loadStarshipsData();
 		}, []);
 
 	return(
@@ -21,7 +24,7 @@ import rigoImage from "../../img/rigo-baby.jpg";
 					
 		
 						<div className="card"   key={i}>
-							<img src={rigoImage} className="card-img-top" alt="..."></img>
+							<img src="https://starwars-visualguide.com/assets/img/categories/films.jpg" className="card-img-top" alt="..."></img>
 							<div className="card-body" >
 									<h5 className="card-title">{people.name}</h5>
 																
@@ -36,14 +39,14 @@ import rigoImage from "../../img/rigo-baby.jpg";
 				)}
 			</div>		
 			<h1 className="title" >
-				Characters
+				Planets
 			</h1>
 			<div className="container" >		
 				{store.planetsData.map((people, i)=>
 					
 		
 						<div className="card"   key={i}>
-							<img src={rigoImage} className="card-img-top" alt="..."></img>
+							<img src="https://starwars-visualguide.com/assets/img/planets/2.jpg" className="card-img-top" alt="..."></img>
 							<div className="card-body" >
 									
 									<h5 className="card-title">{people.name}</h5>
@@ -59,14 +62,14 @@ import rigoImage from "../../img/rigo-baby.jpg";
 				)}
 			</div>		
 			<h1 className="title" >
-				Characters
+				Starships
 			</h1>
 			<div className="container" >		
 				{store.starshipsData.map((people, i)=>
 					
 		
 						<div className="card"   key={i}>
-							<img src={rigoImage} className="card-img-top" alt="..."></img>
+							<img src="https://starwars-visualguide.com/assets/img/categories/starships.jpg" className="card-img-top" alt="..."></img>
 							<div className="card-body" >
 									
 									<h5 className="card-title">{people.name}</h5>
@@ -88,3 +91,4 @@ import rigoImage from "../../img/rigo-baby.jpg";
 	);
 }
 
+export default Home;
