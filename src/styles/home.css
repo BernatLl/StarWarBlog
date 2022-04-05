@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content:start;
+    overflow-y: hidden;
+}
+
+.card {
+    width:50rem;
+  
+    padding: 3%;
+    margin-right: 3%;
+   min-width:20rem;
+   margin-bottom: 3%;
+}
+.card-link {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+   
+}
+.title {
+    margin-bottom: 5%;
+    color:white;
+    text-align: center;
+}
+body {
+    background-color: black;
+   
+}
