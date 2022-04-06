@@ -5,13 +5,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			peopleData: [],
 			planetsData: [],
 			starshipsData: [],
-			peopleDataId:[]
+			
 		},
 		actions: {
 			loadTotal: ()=> {
-				loadPeopleData();
-				loadPlanetData();
-				loadStarshipsData();
+				getActions.loadPeopleData();
+				getActions.loadPlanetData();
+				getActions.loadStarshipsData();
 			},
 			loadPeopleData: () => {
 				fetch("https://www.swapi.tech/api/people", {
@@ -70,25 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 			
 			},
-			loadPeopleDetail: () => {
-				fetch("https://www.swapi.tech/api/people", {
-				method: "GET",
-				headers: {
-					"Accept": "application/json"
-				}
-				})
-				.then(resp => {return resp.json()}
-				)
-				.then(data => {
-					
-					setStore({peopleDataId:data})
-				})
-				.catch(error=>{
-					console.error(error.message);
-
-				})
 			
-			},
 			
 		}
 	};

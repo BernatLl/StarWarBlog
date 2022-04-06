@@ -7,7 +7,7 @@
 
 .card {
     width:50rem;
-  
+    background: rgba(243, 207, 1, 0.671);
     padding: 3%;
     margin-right: 3%;
    min-width:20rem;

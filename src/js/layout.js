@@ -3,14 +3,15 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import  Home  from "./views/home";
-import { DataDetail } from "./views/dataDetail";
+import { DataDetail } from "../js/views/dataDetail.js";
+import { DataPlanetsDetail } from "./views/dataPlanetsDetail";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-
+import { useParams } from "react-router";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
-//create your first component
+//create your first components
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
@@ -25,15 +26,13 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/views/dataDetail/:theid">
-							<DataDetail />
+						<Route exact path="/dataDetail/:uid">
+							<DataDetail/>
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/dataPlanetDetail/:uid">
+							<DataPlanetsDetail/>
 						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
+						
 					</Switch>
 					<Footer />
 				</ScrollToTop>

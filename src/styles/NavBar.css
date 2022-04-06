@@ -1,0 +1,29 @@
+.NavBarBody{
+    z-index: -1;
+    height: 10%;
+    width: 100%;
+    position: inherit;
+    display: absolute;
+    
+}
+.NavBar{
+    width: 100%;
+    background-color:black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Tittle{
+    font-size: 6rem;
+    color: rgba(243, 207, 1, 0.671);
+    text-align: center;
+}
+
+
+.btn-primary {
+    color: #fff;
+   background-color: transparent;
+    border-color: #ffc107;
+}

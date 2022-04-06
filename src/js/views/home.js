@@ -2,16 +2,16 @@ import React,{useEffect, useContext} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
-
+import { useParams } from "react-router";
 
 const Home = () => {
 	const { store, actions } = useContext(Context);
-
+	const uid = useParams().uid;
 	useEffect (()=>{
 			actions.loadPeopleData();
 				actions.loadPlanetData();
 				actions.loadStarshipsData();
-				actions.loadPeopleDetail();
+				
 		}, []);
 
 	return(
@@ -27,8 +27,8 @@ const Home = () => {
 									<h5 className="card-title">{people.name}</h5>
 																
 									<div className="card-link">
-										<Link to="/dataDetails">
-											<button className="btn btn-primary" id={people.uid}>Read more</button>
+										<Link to={"/dataDetail/" + people.uid}>
+											<button className="btn btn-primary" uid={people.uid}>Read more</button>
 										</Link>		
 											<button className="btn btn-primary">favorites</button>
 									</div>
@@ -48,7 +48,9 @@ const Home = () => {
 									<h5 className="card-title">{people.name}</h5>
 									
 									<div className="card-link">
-											<button className="btn btn-primary">Read more</button>
+										<Link to={"/dataPlanetDetail/" + people.uid}>
+											<button className="btn btn-primary" uid={people.uid}>Read more</button>
+										</Link>	
 											<button className="btn btn-primary">favorites</button>
 									</div>
 							</div>
