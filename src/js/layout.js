@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import  Home  from "./views/home";
 import { DataDetail } from "../js/views/dataDetail.js";
 import { DataPlanetsDetail } from "./views/dataPlanetsDetail";
+import { DataShipsDetail } from "./views/dataShipsDetail";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 import { useParams } from "react-router";
@@ -31,6 +32,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/dataPlanetDetail/:uid">
 							<DataPlanetsDetail/>
+						</Route>
+						<Route exact path="/dataShipsDetail/:uid">
+							<DataShipsDetail/>
 						</Route>
 						
 					</Switch>

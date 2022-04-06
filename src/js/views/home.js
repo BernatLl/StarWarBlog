@@ -69,7 +69,9 @@ const Home = () => {
 									<h5 className="card-title">{people.name}</h5>
 								
 									<div className="card-link">
-											<button className="btn btn-primary">Read more</button>
+									<Link to={"/dataShipsDetail/" + people.uid}>
+											<button className="btn btn-primary" uid={people.uid}>Read more</button>
+										</Link>
 											<button className="btn btn-primary">favorites</button>
 									</div>
 							</div>
